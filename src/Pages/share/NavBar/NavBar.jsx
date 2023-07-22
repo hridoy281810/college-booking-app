@@ -6,7 +6,7 @@ const options = <>
 <Link to='/'>Home</Link>
 <Link to='/colleges'>Colleges</Link>
 <Link to='/admission'>Admission</Link>
-<Link to='/'>My Collage</Link>
+<Link to='/myCollege'>My Collage</Link>
 </>
     return (
         <div className='bg-base-100  ' >

@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import AdmissionCard from './AdmissionCard';
 
 const Admission = () => {
+  const [collages,setCollage] = useState([])
+  useEffect(()=>{
+      fetch(`http://localhost:5000/college`)
+      .then(res => res.json())
+      .then(data => {
+          console.log(data)
+          setCollage(data)
+      })
+  },[])
     return (
       <div className='container'>
-
-<div className="collapse bg-base-200">
-        <input type="checkbox" className="peer" /> 
-        <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-          Click me to show/hide content
-        </div>
-        <div className="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"> 
-          <p>hello</p>
-        </div>
-      </div>
+   {
+             collages.map(collage => <AdmissionCard key={collage._id} collage={collage} />)   
+            }
       </div>
     );
 };
