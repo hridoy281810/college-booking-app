@@ -14,5 +14,17 @@ export const myCollage = async (collegeData) => {
     return data
   }
   
+export const myReview = async (review) => {
+    const res = await fetch(`http://localhost:5000/reviews`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(review),
+    })
+    const data = await res.json()
+    return data
+  }
+  
   
   
