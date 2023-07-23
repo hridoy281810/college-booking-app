@@ -53,9 +53,7 @@ const Login = () => {
                 {errors.password?.type === 'required' && <p className='text-red-600'>Password is required</p>}
                 {errors.password?.type === 'minLength' && <p className='text-red-600'>Password must be 6 characters</p>}
                 {errors.password?.type === 'pattern' && <p className='text-red-600'>Password  must have one uppercase , one number and one special character</p>}
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                </label>
+             
               </div>
               <p className='text-red-700 label-text-alt mt-2'>{error}</p>
               <div className="form-control mt-6">

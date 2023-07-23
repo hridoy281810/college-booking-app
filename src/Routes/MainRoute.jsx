@@ -9,6 +9,8 @@ import Registration from "../Pages/Registration/Registration";
 import Login from "../Pages/Login/Login";
 import Profile from "../Pages/Profile/Profile";
 import PrivetRoute from "./PrivetRoute";
+import ResetPassword from "../Pages/Login/ResetPassword";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 const router = createBrowserRouter([
    {
     path:'/',
@@ -41,14 +43,23 @@ const router = createBrowserRouter([
       {
         path:'profile/:email',
         element:<Profile></Profile>
-      }
-    ]
-   },
+      },
       {
         path: '/CollegeDetails/:id',
         element:<PrivetRoute><CollegeDetails></CollegeDetails></PrivetRoute>,
         loader: ({params})=> fetch(`http://localhost:5000/college/details/${params.id}`)
+      },
+      {
+        path: 'resetPassword',
+        element: <ResetPassword></ResetPassword>
       }
+    ]
+   },
+   {
+    path:'*',
+    element: <ErrorPage></ErrorPage>
+   }
+      
   ]);
 
   export default router;

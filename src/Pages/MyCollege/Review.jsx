@@ -2,9 +2,12 @@
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import {  myReview } from '../../hooks/usePostCollege';
+import useAuth from '../../hooks/useAuth';
 const Review = () => {
+  const {user} = useAuth()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 const onSubmit = (data) => {
+      if(user){
         myReview(data)
         .then(data => {
           if (data.insertedId) {
@@ -40,6 +43,17 @@ const onSubmit = (data) => {
           });
         });
       
+      }
+      else{
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Failed to add college',
+          text: 'please login',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
      
   };
   
@@ -62,7 +76,7 @@ const onSubmit = (data) => {
                       </label>
                       <input  type="text" {...register("email", { required: true })} name='email'  className="input input-bordered   w-[400]"/>
                     </div>
-                    <div className='md:flex w-full gap-4'>
+                    <div className='md:flex sm:flex-col w-full gap-4'>
                       <div className="form-control w-full">
                         <label className="label">
                           <span className="label-text text-white">Collage Name</span>

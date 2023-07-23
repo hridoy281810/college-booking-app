@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const FeatureCard = ({collage}) => {
  const {_id,admission_dates,college_image,college_name, events,research_history,sports} = collage
     return (
-        <div className="card w-96 glass">
-        <figure><img className='h-60 ' src={college_image} alt="car!"/></figure>
+        <div className="card w-96 mb-2  glass">
+        <figure><img className='h-60 w-full ' src={college_image} alt="car!"/></figure>
         <div className="card-body">
           <h2 className="card-title">{college_name}</h2>
          <p><strong>Admission date:</strong> {admission_dates}</p>
