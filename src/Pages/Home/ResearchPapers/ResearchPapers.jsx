@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import HeadingLine from '../../../components/Header/HeadingLine';
 
 const ResearchPapers = () => {
-    // Sample recommended research papers data (you can replace this with your actual data)
+
+   
     const recommendedPapers = [
         {
             title: 'Advancements in Artificial Intelligence: A Comprehensive Review',
@@ -44,6 +46,7 @@ const ResearchPapers = () => {
 
     return (
         <div className='container '>
+                        <HeadingLine title={'Links are provided to research papers that have been researched by college students'} heading={'Research Papers'} />
           <div >
           <div className='grid grid-cols-1 md:grid-cols-4'>
                 {recommendedPapers.map((paper, index) => (

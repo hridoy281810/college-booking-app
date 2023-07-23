@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CollegeCard from './CollegeCard';
+import HeadingLine from '../../components/Header/HeadingLine';
 
 const Colleges = () => {
     const [collages,setCollage] = useState([])
@@ -13,6 +14,7 @@ const Colleges = () => {
     },[])
     return (
         <div className='container'>
+             <HeadingLine title={'All the college information is given here'} heading={'All College'} />
         <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 my-4'>
             {
              collages.map(collage => <CollegeCard key={collage._id} collage={collage}></CollegeCard>)   

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaQuoteLeft } from 'react-icons/fa';
 import { RiStarFill } from 'react-icons/ri';
+import HeadingLine from '../../../components/Header/HeadingLine';
 
 const ReviewSection = () => {
   const [reviews, setReviews] = useState([]);
@@ -18,7 +19,7 @@ const ReviewSection = () => {
 
   return (
     <div className="container py-10">
-      <h2 className="text-3xl font-bold mb-8">College Reviews</h2>
+        <HeadingLine title={'You can see the reviews'} heading={'College Reviews'} />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {reviews.map((review) => (
           <div key={review._id} className="bg-white p-6 shadow-lg rounded-lg flex flex-col items-center">

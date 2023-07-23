@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { userFeedback } from '../../../hooks/userFeedback';
+import HeadingLine from '../../../components/Header/HeadingLine';
 
 const FeedbackForm = () => {
   const [feedback, setFeedback] = useState({
@@ -53,7 +54,7 @@ const FeedbackForm = () => {
 
   return (
     <div className="container py-10">
-      <h2 className="text-3xl font-bold mb-8">Feedback Form</h2>
+      <HeadingLine title={'Please give your valuable feedback!'} heading={'Feedback Form'} />
       {submitted ? (
         <div className="bg-green-200 p-4 rounded-lg">
           <p className="text-green-800">Thank you for your feedback!</p>

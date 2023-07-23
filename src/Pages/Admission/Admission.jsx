@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AdmissionCard from './AdmissionCard';
+import HeadingLine from '../../components/Header/HeadingLine';
 
 const Admission = () => {
   const [collages,setCollage] = useState([])
@@ -13,6 +14,8 @@ const Admission = () => {
   },[])
     return (
       <div className='container'>
+         <HeadingLine title={'You can book for all college admissions'} heading={'Admission Section'} />
+    
    {
              collages.map(collage => <AdmissionCard key={collage._id} collage={collage} />)   
             }

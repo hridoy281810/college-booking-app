@@ -5,7 +5,10 @@ import CollegeDetails from "../Pages/Home/FeaturedColleges/CollegeDetails";
 import Colleges from "../Pages/Colleges/Colleges";
 import Admission from "../Pages/Admission/Admission";
 import MyCollege from "../Pages/MyCollege/MyCollege";
-
+import Registration from "../Pages/Registration/Registration";
+import Login from "../Pages/Login/Login";
+import Profile from "../Pages/Profile/Profile";
+import PrivetRoute from "./PrivetRoute";
 const router = createBrowserRouter([
    {
     path:'/',
@@ -26,12 +29,24 @@ const router = createBrowserRouter([
       {
         path:'myCollege',
         element:<MyCollege></MyCollege>
+      },
+      {
+        path:'login',
+        element: <Login></Login>
+      },
+      {
+        path:'registration',
+        element:<Registration></Registration>
+      },
+      {
+        path:'profile/:email',
+        element:<Profile></Profile>
       }
     ]
    },
       {
         path: '/CollegeDetails/:id',
-        element:<CollegeDetails></CollegeDetails>,
+        element:<PrivetRoute><CollegeDetails></CollegeDetails></PrivetRoute>,
         loader: ({params})=> fetch(`http://localhost:5000/college/details/${params.id}`)
       }
   ]);
