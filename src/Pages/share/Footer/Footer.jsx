@@ -9,12 +9,12 @@ const Footer = () => {
       <div>
         <footer className="bg-gray-800 text-white py-8">
           <div className="container mx-auto overflow-x-hidden ">
-          <div className='md:inline-flex  justify-center items-center '>
-               
-               <FaGraduationCap className='text-[#ff7350]'  size={30}/>
-               <Link to='/'><p className="text-[12px
+            <div className='md:inline-flex  justify-center items-center '>
+
+              <FaGraduationCap className='text-[#ff7350]' size={30} />
+              <Link to='/'><p className="text-[12px
      ] md:normal-case md:text-xl font-semibold md:font-bold text-[#ff7350]">  AcademiaPulse</p></Link>
-             </div>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
               <div className="text-center md:text-left">
                 <h4 className="text-lg font-bold mb-3">About Us</h4>

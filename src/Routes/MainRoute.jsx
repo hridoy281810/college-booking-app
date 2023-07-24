@@ -12,8 +12,8 @@ import PrivetRoute from "./PrivetRoute";
 import ResetPassword from "../Pages/Login/ResetPassword";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 const router = createBrowserRouter([
-   {
-    path:'/',
+  {
+    path: '/',
     element: <MainLayOut></MainLayOut>,
     children: [
       {
@@ -29,37 +29,37 @@ const router = createBrowserRouter([
         element: <Admission></Admission>
       },
       {
-        path:'myCollege',
-        element:<MyCollege></MyCollege>
+        path: 'myCollege',
+        element: <MyCollege></MyCollege>
       },
       {
-        path:'login',
+        path: 'login',
         element: <Login></Login>
       },
       {
-        path:'registration',
-        element:<Registration></Registration>
+        path: 'registration',
+        element: <Registration></Registration>
       },
       {
-        path:'profile/:email',
-        element:<Profile></Profile>
+        path: 'profile/:email',
+        element: <Profile></Profile>
       },
       {
         path: '/CollegeDetails/:id',
-        element:<PrivetRoute><CollegeDetails></CollegeDetails></PrivetRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/college/details/${params.id}`)
+        element: <PrivetRoute><CollegeDetails></CollegeDetails></PrivetRoute>,
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_URL}/college/details/${params.id}`)
       },
       {
         path: 'resetPassword',
         element: <ResetPassword></ResetPassword>
       }
     ]
-   },
-   {
-    path:'*',
+  },
+  {
+    path: '*',
     element: <ErrorPage></ErrorPage>
-   }
-      
-  ]);
+  }
 
-  export default router;
+]);
+
+export default router;

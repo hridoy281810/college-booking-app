@@ -5,12 +5,12 @@ import Loading from '../share/Loader/Loading';
 
 const Profile = () => {
   const { user } = useAuth();
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`${import.meta.env.VITE_URL}/users/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -21,14 +21,14 @@ const Profile = () => {
         console.log(error.message);
         setLoading(false);
       });
-  }, [user?.email]); 
-  if(loading){
+  }, [user?.email]);
+  if (loading) {
     return <Loading></Loading>
   }
   return (
-    <div>
+    <div className='background-img'>
       <div className="container">
-        {loading ? ( 
+        {loading ? (
           <div><Loading></Loading></div>
         ) : (
           <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 gap-10">

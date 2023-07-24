@@ -20,9 +20,9 @@ const Registration = () => {
         console.log(loggedUser)
         updateUserProfile(data.name, data.photoURL)
           .then(() => {
-            const saveUser = { name: data.name, email: data.email, photo: data.photo}
-       console.log(saveUser)
-            fetch(`http://localhost:5000/users`, {
+            const saveUser = { name: data.name, email: data.email, photo: data.photo }
+            console.log(saveUser)
+            fetch(`${import.meta.env.VITE_URL}/users`, {
               method: 'POST',
               headers: {
                 'content-type': 'application/json'
@@ -50,30 +50,30 @@ const Registration = () => {
   }
 
   return (
-    <>
+    <div className='background-img'>
       <div className=" md:p-12 ">
-        <div className="shadow-2xl bg-base-100 flex-shrink-0 w-full  rounded-2xl  p-4">
-          <h1 className='text-center mt-4 text-3xl font-bold '>Registration Now!</h1>
+        <div className="shadow-2xl regBg  flex-shrink-0 w-full  rounded-2xl  p-4">
+          <h1 className='text-center mt-4 text-3xl font-bold text-white '>Registration Now!</h1>
           <div className=" ">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className='grid md:grid-cols-2 gap-4 '>
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Name</span>
+                    <span className="label-text text-white">Name</span>
                   </label>
                   <input type="text" {...register("name", { required: true })} name="name" placeholder="name" className="input input-bordered" />
                   {errors.name && <span className='text-red-600  '>This field is required</span>}
                 </div>
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Email</span>
+                    <span className="label-text text-white">Email</span>
                   </label>
                   <input type="email" {...register("email", { required: true })} name='email' placeholder="email" className="input input-bordered" />
                   {errors.email && <span className='text-red-600  '>This field is required</span>}
                 </div>
                 <div className="form-control w-full ">
-                  <label className="label">
-                    <span className="label-text">Password</span>
+                  <label className="label ">
+                     <span className="label-text text-white">Password</span>
                   </label>
                   <input type="password" {...register("password", {
                     required: true, minLength: 6, maxLength: 20,
@@ -88,7 +88,7 @@ const Registration = () => {
                 </div>
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Confirm Password</span>
+                     <span className="label-text text-white">Confirm Password</span>
                   </label>
                   <input
                     type="password"
@@ -109,14 +109,14 @@ const Registration = () => {
                 </div>
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Photo URL</span>
+                     <span className="label-text text-white">Photo URL</span>
                   </label>
                   <input type="url" {...register("photoURL", { required: true })} name="photoURL" placeholder="Photo URL" className="input input-bordered" />
                   {errors.photoURL && <span className='text-red-600  '>photo URL is required</span>}
                 </div>
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Gender</span>
+                     <span className="label-text text-white">Gender</span>
                   </label>
                   <select  {...register("gender", { required: true })} name="gender" className="select select-bordered">
                     <option value="">Select Gender</option>
@@ -127,13 +127,13 @@ const Registration = () => {
                 </div>
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Phone Number</span>
+                     <span className="label-text text-white">Phone Number</span>
                   </label>
                   <input type="number" {...register("phoneNumber", { required: true })} name="phoneNumber" placeholder="Phone Number" className="input input-bordered" />
                 </div>
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Address</span>
+                     <span className="label-text text-white">Address</span>
                   </label>
                   <textarea {...register("address")} name="address" placeholder="Address" className="textarea textarea-bordered"></textarea>
                 </div>
@@ -142,15 +142,15 @@ const Registration = () => {
               <div className="form-control mt-6">
                 <input type='submit' className="btn btn-primary" value={'Registration'} />
               </div>
-              <div className="divider">Social Registration</div>
-           <GoogleLogin></GoogleLogin>
+              <div className="divider text-white">Social Registration</div>
+              <GoogleLogin></GoogleLogin>
               <GitHub></GitHub>
-              <p><small>Already have an account? <Link to={'/login'}>please login</Link></small></p>
+              <p className='text-white'><small>Already have an account? <Link to={'/login'}>please login</Link></small></p>
             </form>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

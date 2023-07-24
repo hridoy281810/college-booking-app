@@ -3,7 +3,7 @@
 
 
 export const myCollage = async (collegeData) => {
-    const res = await fetch(`http://localhost:5000/myCollege`, {
+    const res = await fetch(`${import.meta.env.VITE_URL}/myCollege`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -15,7 +15,7 @@ export const myCollage = async (collegeData) => {
   }
   
 export const myReview = async (review) => {
-    const res = await fetch(`http://localhost:5000/reviews`, {
+    const res = await fetch(`${import.meta.env.VITE_URL}/reviews`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

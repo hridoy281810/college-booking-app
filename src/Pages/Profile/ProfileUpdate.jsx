@@ -7,7 +7,7 @@ const ProfileUpdate = ({ userInfo, setUserInfo }) => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/users/${_id}`, {
+    fetch(`${import.meta.env.VITE_URL}/users/${_id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ const ProfileUpdate = ({ userInfo, setUserInfo }) => {
           reset();
 
           // Fetch updated user data after successful update
-          fetch(`http://localhost:5000/users/${userInfo.email}`)
+          fetch(`${import.meta.env.VITE_URL}/users/${userInfo.email}`)
             .then(res => res.json())
             .then(data => {
               setUserInfo(data);

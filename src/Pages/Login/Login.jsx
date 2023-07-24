@@ -21,7 +21,7 @@ const Login = () => {
         //
         Swal.fire('User login successfully')
         navigate(from, { replace: true });
-      
+
       })
       .catch(error => {
         console.log(error)
@@ -53,17 +53,17 @@ const Login = () => {
                 {errors.password?.type === 'required' && <p className='text-red-600'>Password is required</p>}
                 {errors.password?.type === 'minLength' && <p className='text-red-600'>Password must be 6 characters</p>}
                 {errors.password?.type === 'pattern' && <p className='text-red-600'>Password  must have one uppercase , one number and one special character</p>}
-             
+
               </div>
               <p className='text-red-700 label-text-alt mt-2'>{error}</p>
               <div className="form-control mt-6">
                 <input type='submit' className="btn btn-primary" value={'Login'} />
               </div>
               <div className="divider">Social Login</div>
-           
-             <GoogleLogin></GoogleLogin>
-             <GitHub></GitHub>
-            
+
+              <GoogleLogin></GoogleLogin>
+              <GitHub></GitHub>
+
               <p><small>New Hear? <Link to={'/registration'}>please Registration</Link></small></p>
             </form>
           </div>

@@ -1,27 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { FaQuoteLeft } from 'react-icons/fa';
 import { RiStarFill } from 'react-icons/ri';
+import { Slide } from 'react-reveal';
 import HeadingLine from '../../../components/Header/HeadingLine';
 
 const ReviewSection = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/reviews', {
+    fetch(`${import.meta.env.VITE_URL}/reviews`, {
       method: 'GET'
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      setReviews(data);
-    });
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setReviews(data);
+      });
   }, []);
-
+ 
   return (
     <div className="container py-10">
-        <HeadingLine title={'You can see the reviews'} heading={'College Reviews'} />
+      <HeadingLine title={'You can see the reviews'} heading={'College Reviews'} />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {reviews.map((review) => (
+           <Slide bottom>
+
           <div key={review._id} className="bg-white p-6 shadow-lg rounded-lg flex flex-col items-center">
             <FaQuoteLeft className="text-3xl mb-4 text-primary" />
             <img src={review?.reviewerImage} alt="Reviewer" className="w-20 h-20 rounded-full mb-4" />
@@ -34,6 +37,7 @@ const ReviewSection = () => {
               ))}
             </div>
           </div>
+           </Slide>
         ))}
       </div>
     </div>

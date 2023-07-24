@@ -6,9 +6,12 @@ import Footer from '../Pages/share/Footer/Footer';
 
 const MainLayOut = () => {
     return (
-        <div>
+        <div >
+
             <NavBar></NavBar>
-            <Outlet></Outlet>
+           <div className='min-h-[calc(100vh-479px)] mx-auto'>
+           <Outlet></Outlet>
+           </div>
             <Footer></Footer>
         </div>
     );

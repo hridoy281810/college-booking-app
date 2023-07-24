@@ -6,7 +6,9 @@ const Loading = () => {
             <div className='flex justify-center items-center h-[calc(100vh-473px)]' >
                 <div>
                     <h1 className='text-4xl font-semibold text-orange-600'>LOADING......</h1>
+                    <div className='flex justify-center pt-6'>
                     <span className="loading loading-spinner loading-lg"></span>
+                    </div>
                 </div>
             </div>
         </div>
