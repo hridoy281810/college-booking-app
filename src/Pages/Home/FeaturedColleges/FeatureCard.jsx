@@ -29,7 +29,7 @@ const FeatureCard = ({ collage }) => {
         </div>
 
         <div className="card-actions justify-start">
-          <Link to={`/CollegeDetails/${_id}`}> <button className="btn btn-sm bg-sky-800 md:text-white hover:text-sky-800">Details</button></Link>
+          <Link to={`/CollegeDetails/${_id}`}> <button className="btn btn-sm bg-sky-800 md:text-white hover:text-sky-800 text-white">Details</button></Link>
         </div>
       </div>
     </div>

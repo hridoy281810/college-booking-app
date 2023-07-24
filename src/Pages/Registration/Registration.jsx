@@ -33,7 +33,13 @@ const Registration = () => {
               .then(data => {
                 if (data.insertedId) {
                   reset()
-                  Swal.fire('User Registration successfully')
+                  Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User Registration successfully',
+                    showConfirmButton: false,
+                    timer: 1500})
+                 
                   navigate('/')
                 }
               })

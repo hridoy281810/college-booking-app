@@ -19,7 +19,12 @@ const Login = () => {
         const loggedUser = result.user;
         console.log(loggedUser)
         //
-        Swal.fire('User login successfully')
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'User login successfully',
+          showConfirmButton: false,
+          timer: 1500})
         navigate(from, { replace: true });
 
       })

@@ -5,6 +5,7 @@ import Loading from '../share/Loader/Loading';
 
 const Profile = () => {
   const { user } = useAuth();
+  console.log(user)
   const [loading, setLoading] = useState(true);
   const [userInfo, setUserInfo] = useState({});
 
@@ -19,23 +20,19 @@ const Profile = () => {
       })
       .catch(error => {
         console.log(error.message);
-        setLoading(false);
+        setLoading(true);
       });
   }, [user?.email]);
-  if (loading) {
-    return <Loading></Loading>
-  }
+
   return (
     <div className='background-img'>
       <div className="container">
-        {loading ? (
-          <div><Loading></Loading></div>
-        ) : (
+      
           <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 gap-10">
             <div>
               <div className="bg-white p-6 shadow-lg rounded-lg flex flex-col items-center">
-                {user.photoUrl ? (
-                  <img src={user?.photoUrl} alt="user" className="w-56 h-56 rounded-full mb-4" />
+                {user.photoURL ? (
+                  <img src={user?.photoURL} alt="user" className="w-56 h-56 rounded-full mb-4" />
                 ) : (
                   <img src={userInfo?.photo} alt="user" className="w-56 h-56 rounded-full mb-4" />
                 )}
@@ -47,7 +44,7 @@ const Profile = () => {
               <ProfileUpdate userInfo={userInfo} setUserInfo={setUserInfo} />
             </div>
           </div>
-        )}
+  
       </div>
     </div>
   );

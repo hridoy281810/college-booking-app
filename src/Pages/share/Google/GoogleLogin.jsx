@@ -23,7 +23,13 @@ const GoogleLogin = () => {
                 })
                     .then(res => res.json())
                     .then(() => {
-                        Swal.fire('User login successfully')
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'User login successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
                         navigate(from, { replace: true })
                     })
             })

@@ -82,7 +82,7 @@ const NavBar = () => {
 
             {
               user ? <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="md:btn btn-primary md:bg-sky-800 btn-sm bg-sky-800 md:text-white hover:text-sky-800 ">
+                <label tabIndex={0} className="btn bg-sky-800 text-white  ">
                   <div className="rounded-full">
                     {
                       user && <> {userInfo?.name ?
